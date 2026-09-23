@@ -28,12 +28,13 @@ export default function Page() {
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col justify-between">
       {/* NAVIGATION BAR */}
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <button 
-            onClick={() => setActiveTab('home')}
-            className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 hover:opacity-80 transition"
-          >
-            <span className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm font-bold">M</span>
+      {/* AFTER: Concept 1 Logo */}
+<svg className="w-9 h-9 flex-shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="32" fill="#059669" />
+  <path d="M34 78V48C34 38.0589 42.0589 30 52 30C61.9411 30 70 38.0589 70 48V78" stroke="white" strokeWidth="9" strokeLinecap="round" />
+  <path d="M50 78V48C50 38.0589 58.0589 30 68 30C77.9411 30 86 38.0589 86 48V78" stroke="#A7F3D0" strokeWidth="9" strokeLinecap="round" />
+  <path d="M34 78L26 86V74H34Z" fill="white" />
+</svg>
             <span>Talk with <span className="text-emerald-600">Malek</span></span>
           </button>
 
