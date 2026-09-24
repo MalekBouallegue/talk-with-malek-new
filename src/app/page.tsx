@@ -224,11 +224,11 @@ export default function Home() {
                     Hi, I'm Malek! I specialize in helping people build real speaking confidence in 1-on-1 environments.
                   </p>
                   <p>
-                    Many people spend years studying grammar in textbooks or taking language classes, yet still feel frozen when it comes to speaking out loud, especially in front of groups. My mission is to give you a supportive, comfortable space where you can practice expressing your thoughts without fear of being judged.
+                    Some learners spend years studying grammar in textbooks or taking language classes, yet still feel frozen when it comes to speaking out loud, especially in front of groups. My mission is to give you a supportive, comfortable space where you can practice expressing your thoughts without fear of being judged.
                   </p>
                   <p>
-                    Whether you want to improve your conversational English, practice spoken Arabic, or simply get comfortable articulating your ideas. I am here to listen, support, and guide you.
-                  </p>
+                    Whether you want to improve your conversational English, practice spoken Arabic, or simply get comfortable articulating your ideas. </p>
+                  <p>I am here to listen, support, and guide you.</p>
                 </div>
 
                 {/* Promise Box */}
