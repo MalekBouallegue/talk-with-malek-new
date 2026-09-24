@@ -150,7 +150,7 @@ export default function Home() {
             {/* Clean Hero Header */}
             <div className="space-y-6 pt-4">
               <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Speak English or Arabic with confidence.
+                Speak with confidence.
               </h1>
               <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                 Relaxed 1-on-1 conversation sessions tailored to your pace—no group pressure, no grammar drills, and zero judgment.
