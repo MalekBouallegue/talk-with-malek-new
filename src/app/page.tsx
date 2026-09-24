@@ -216,7 +216,7 @@ export default function Home() {
               <div className="lg:col-span-7 space-y-6">
                 <div>
                   <h2 className="text-3xl font-extrabold text-slate-900 mb-2">About Me</h2>
-                  <p className="text-emerald-700 font-semibold text-lg">Communication Educator & TESOL Specialist</p>
+                  <p className="text-emerald-700 font-semibold text-lg">Communication Tutor & Facilitator</p>
                 </div>
 
                 <div className="space-y-4 text-slate-600 leading-relaxed">
@@ -224,10 +224,10 @@ export default function Home() {
                     Hi, I'm Malek! I specialize in helping people build real speaking confidence in 1-on-1 environments.
                   </p>
                   <p>
-                    Many people spend years studying grammar in textbooks or taking language classes, yet still feel frozen when it comes to speaking out loud—especially in front of groups. My mission is to give you a supportive, comfortable space where you can practice expressing your thoughts without fear of being judged.
+                    Many people spend years studying grammar in textbooks or taking language classes, yet still feel frozen when it comes to speaking out loud, especially in front of groups. My mission is to give you a supportive, comfortable space where you can practice expressing your thoughts without fear of being judged.
                   </p>
                   <p>
-                    Whether you want to improve your conversational English, practice spoken Arabic, or simply get comfortable articulating your ideas in 1-on-1 conversations, I am here to listen, support, and guide you.
+                    Whether you want to improve your conversational English, practice spoken Arabic, or simply get comfortable articulating your ideas. I am here to listen, support, and guide you.
                   </p>
                 </div>
 
@@ -239,13 +239,13 @@ export default function Home() {
                       <span className="text-emerald-600 font-bold">✓</span> 100% judgment-free environment
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">✓</span> Patience and active listening during every session
+                      <span className="text-emerald-600 font-bold">✓</span> Active listening during every session
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">✓</span> Conversations centered on real-life topics you care about
+                      <span className="text-emerald-600 font-bold">✓</span> Conversations centered on real-life topics
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">✓</span> Video or audio call—whichever makes you feel most comfortable
+                      <span className="text-emerald-600 font-bold">✓</span> Video/Audio call. Whichever makes you feel most comfortable
                     </li>
                   </ul>
                 </div>
@@ -259,12 +259,11 @@ export default function Home() {
                   <div className="relative bg-white p-3 rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
                     <img 
                       src="/profile.jpg" 
-                      alt="Malek - Communication Educator" 
+                      alt="Malek - Communication Tutor" 
                       className="w-full h-[400px] object-cover rounded-2xl"
                     />
                     <div className="p-4 text-center">
-                      <h4 className="font-bold text-slate-900 text-lg">Malek</h4>
-                      <p className="text-xs text-emerald-600 font-medium">TESOL Specialist & Coach</p>
+                      <h4 className="font-bold text-emerald-900 text-lg">Malek B. </h4>
                     </div>
                   </div>
                 </div>
