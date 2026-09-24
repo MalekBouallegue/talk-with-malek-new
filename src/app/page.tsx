@@ -40,7 +40,7 @@ export default function Home() {
       {/* ------------------------------------------------------------- */}
       {/* FLOATING ALPHABET BUBBLES BACKGROUND                          */}
       {/* ------------------------------------------------------------- */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0 opacity-60">
         {/* English Alphabet Bubbles */}
         <div className="absolute top-16 left-[5%] w-12 h-12 rounded-full bg-emerald-100/70 border border-emerald-300/50 text-emerald-800/50 font-extrabold text-xl flex items-center justify-center shadow-sm">
           A
@@ -141,67 +141,66 @@ export default function Home() {
       {/* ------------------------------------------------------------- */}
       {/* MAIN CONTENT CONTAINER                                        */}
       {/* ------------------------------------------------------------- */}
-      <main className="relative z-10 max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <main className="relative z-10 max-w-5xl mx-auto px-4 py-12 md:py-20">
         
         {/* TAB 1: HOME */}
         {activeTab === 'home' && (
           <div className="space-y-16 text-center max-w-3xl mx-auto">
-            <div className="space-y-6">
-              <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-200">
-                1-on-1 Judgment-Free Communication
-              </span>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight">
-                Express yourself with confidence. <br />
-                <span className="text-emerald-600">One-on-one, your way.</span>
+            
+            {/* Clean Hero Header */}
+            <div className="space-y-6 pt-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Speak English or Arabic with confidence.
               </h1>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                Hello, I'm <strong className="text-slate-800">Malek</strong>, a communication educator. If you struggle to speak in big groups or feel anxious making mistakes, this is a safe, relaxed space to practice speaking English or Arabic naturally.
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                Relaxed 1-on-1 conversation sessions tailored to your pace—no group pressure, no grammar drills, and zero judgment.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition transform active:scale-95"
+                  className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3 rounded-full shadow-md hover:shadow-lg transition transform active:scale-95 text-sm"
                 >
                   Book Your Free 30-Min Call
                 </button>
                 <button 
                   onClick={() => setActiveTab('how')}
-                  className="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-700 font-semibold px-8 py-3.5 rounded-full border border-slate-300 transition"
+                  className="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-700 font-semibold px-7 py-3 rounded-full border border-slate-300 transition text-sm"
                 >
-                  Explore How It Works
+                  How It Works
                 </button>
               </div>
             </div>
 
-            {/* Feature Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-8">
-              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+            {/* Feature Cards Grid (Value-Add Points) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6">
+              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4 text-xl">
+                  🎯
+                </div>
+                <h3 className="font-bold text-slate-900 text-base mb-1.5">Personalized Pace</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  No rigid curricula. We talk about real-life topics you care about and focus entirely on your rhythm.
+                </p>
+              </div>
+
+              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4 text-xl">
                   🗣️
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-1">1-on-1 Connection</h3>
+                <h3 className="font-bold text-slate-900 text-base mb-1.5">Real Conversation</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  No large classrooms or group pressure. Just you and me, focused entirely on your rhythm and comfort.
+                  Ditch textbook drills. We focus on articulating your thoughts clearly and overcoming speaking anxiety.
                 </p>
               </div>
 
-              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4 text-xl">
-                  🛡️
+                  🌍
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-1">Zero Judgment</h3>
+                <h3 className="font-bold text-slate-900 text-base mb-1.5">Bilingual Support</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Mistakes are welcomed here. We focus on getting your ideas across smoothly rather than memorizing grammar rules.
-                </p>
-              </div>
-
-              <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4 text-xl">
-                  🌐
-                </div>
-                <h3 className="font-bold text-slate-900 text-lg mb-1">English & Arabic</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Practice spoken English or Arabic with an expert who understands real dialogue.
+                  Practice spoken English or Arabic with an educator who understands real dialogue and language nuances.
                 </p>
               </div>
             </div>
