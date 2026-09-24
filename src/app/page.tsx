@@ -2,14 +2,43 @@
 
 import { useState } from 'react';
 
+const ACCESS_KEY = "3b223a59-622c-4759-9063-5c4bc0534d36";
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'home' | 'about' | 'how' | 'pricing'>('home');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", ACCESS_KEY);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus('success');
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 relative overflow-hidden font-sans">
       
       {/* ------------------------------------------------------------- */}
-      {/* FLOATING ALPHABET BUBBLES BACKGROUND (English & Arabic)       */}
+      {/* FLOATING ALPHABET BUBBLES BACKGROUND                          */}
       {/* ------------------------------------------------------------- */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
         {/* English Alphabet Bubbles */}
@@ -58,7 +87,6 @@ export default function Home() {
             onClick={() => setActiveTab('home')}
             className="flex items-center gap-3 focus:outline-none group"
           >
-            {/* Concept 1 SVG Logo */}
             <svg className="w-10 h-10 flex-shrink-0 transition-transform group-hover:scale-105" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="120" height="120" rx="32" fill="#059669" />
               <path d="M34 78V48C34 38.0589 42.0589 30 52 30C61.9411 30 70 38.0589 70 48V78" stroke="white" strokeWidth="9" strokeLinecap="round" />
@@ -101,7 +129,7 @@ export default function Home() {
 
           {/* CTA Header Button */}
           <button 
-            onClick={() => setActiveTab('pricing')}
+            onClick={() => setIsModalOpen(true)}
             className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold text-sm transition shadow-sm hover:shadow"
           >
             Book Free Call
@@ -131,7 +159,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                 <button 
-                  onClick={() => setActiveTab('pricing')}
+                  onClick={() => setIsModalOpen(true)}
                   className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition transform active:scale-95"
                 >
                   Book Your Free 30-Min Call
@@ -180,7 +208,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* TAB 2: ABOUT ME (Two Columns: Text Left, Photo Right) */}
+        {/* TAB 2: ABOUT ME */}
         {activeTab === 'about' && (
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -227,7 +255,6 @@ export default function Home() {
               {/* Right Column: Profile Picture Card */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative group w-full max-w-sm">
-                  {/* Subtle ambient glow behind frame */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                   
                   <div className="relative bg-white p-3 rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
@@ -291,7 +318,7 @@ export default function Home() {
             </div>
 
             <button 
-              onClick={() => setActiveTab('pricing')}
+              onClick={() => setIsModalOpen(true)}
               className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-full transition shadow-md"
             >
               Start With A Free 30-Min Call
@@ -323,7 +350,10 @@ export default function Home() {
                     Test the experience, see if you feel comfortable talking directly with me, and discuss your goals.
                   </p>
                 </div>
-                <button className="mt-8 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-8 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition"
+                >
                   Book Free Call
                 </button>
               </div>
@@ -340,7 +370,10 @@ export default function Home() {
                     Dedicated individual session to practice speaking skills, build fluency, and express yourself freely.
                   </p>
                 </div>
-                <button className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition"
+                >
                   Book A Session
                 </button>
               </div>
@@ -349,6 +382,106 @@ export default function Home() {
         )}
 
       </main>
+
+      {/* ------------------------------------------------------------- */}
+      {/* BOOKING MODAL FORM                                           */}
+      {/* ------------------------------------------------------------- */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+          <div className="bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative border border-slate-100">
+            <button 
+              onClick={() => { setIsModalOpen(false); setFormStatus('idle'); }}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full flex items-center justify-center bg-slate-100"
+            >
+              ✕
+            </button>
+
+            {formStatus === 'success' ? (
+              <div className="text-center py-8 space-y-4">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                  ✓
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">Request Sent!</h3>
+                <p className="text-slate-600 text-sm">
+                  Thanks for reaching out! I've received your message and will reply to your email shortly to schedule our call.
+                </p>
+                <button
+                  onClick={() => { setIsModalOpen(false); setFormStatus('idle'); }}
+                  className="mt-4 bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-full hover:bg-emerald-700 transition"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-black text-slate-900">Book Your Session</h3>
+                  <p className="text-slate-600 text-sm mt-1">Fill in your details below to schedule your call with Malek.</p>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Your Name</label>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    required 
+                    placeholder="John Doe"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Email Address</label>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    placeholder="john@example.com"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Language Goal</label>
+                  <select 
+                    name="language"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm bg-white"
+                  >
+                    <option value="English Practice">English Speaking Practice</option>
+                    <option value="Arabic Practice">Arabic Speaking Practice</option>
+                    <option value="Both / General">Both / General Communication</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Preferred Time / Note</label>
+                  <textarea 
+                    name="message" 
+                    rows={3} 
+                    required
+                    placeholder="Tell me a bit about your goals and when you are free..."
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
+                  ></textarea>
+                </div>
+
+                {formStatus === 'error' && (
+                  <p className="text-xs text-red-600 text-center font-medium">
+                    Something went wrong. Please try again or email directly.
+                  </p>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={formStatus === 'submitting'}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-md disabled:opacity-50"
+                >
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Booking Request'}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className="relative z-10 border-t border-slate-200 py-6 text-center text-xs text-slate-500">
