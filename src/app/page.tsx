@@ -141,7 +141,7 @@ export default function Home() {
       {/* ------------------------------------------------------------- */}
       {/* MAIN CONTENT CONTAINER                                        */}
       {/* ------------------------------------------------------------- */}
-      <main className="relative z-10 max-w-5xl mx-auto px-4 py-12 md:py-20">
+      <main className="relative z-10 max-w-5xl mx-auto px-4 py-12 md:py-16">
         
         {/* TAB 1: HOME */}
         {activeTab === 'home' && (
@@ -150,7 +150,7 @@ export default function Home() {
             {/* Clean Hero Header */}
             <div className="space-y-6 pt-4">
               <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Speak with confidence.
+                Speak English or Arabic with confidence.
               </h1>
               <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                 Relaxed 1-on-1 conversation sessions tailored to your pace—no group pressure, no grammar drills, and zero judgment.
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Feature Cards Grid (Value-Add Points) */}
+            {/* Feature Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6">
               <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4 text-xl">
@@ -327,12 +327,13 @@ export default function Home() {
 
         {/* TAB 4: PRICING & SCHEDULE */}
         {activeTab === 'pricing' && (
-          <div className="max-w-4xl mx-auto text-center space-y-10">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
             <div>
               <h2 className="text-3xl font-extrabold text-slate-900 mb-2">Simple, Transparent Pricing</h2>
               <p className="text-slate-600">Start free, then continue whenever you need practice.</p>
             </div>
 
+            {/* Pricing Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Free Trial Card */}
               <div className="bg-white/90 backdrop-blur p-8 rounded-3xl border-2 border-emerald-500 shadow-lg relative flex flex-col justify-between">
@@ -377,6 +378,70 @@ export default function Home() {
                 </button>
               </div>
             </div>
+
+            {/* Availability Banner */}
+            <div className="bg-white/90 backdrop-blur p-6 rounded-3xl border border-slate-200/80 shadow-sm text-left flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <h3 className="font-bold text-slate-900 text-base">General Weekly Availability</h3>
+                </div>
+                <p className="text-slate-600 text-sm">Flexible session times across different time zones.</p>
+              </div>
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl px-5 py-3 text-center md:text-right w-full md:w-auto">
+                <span className="block font-bold text-emerald-900 text-sm">Monday – Saturday</span>
+                <span className="block text-emerald-700 text-xs font-medium">2:00 PM – 9:00 PM (CET)</span>
+              </div>
+            </div>
+
+            {/* What Happens After Booking */}
+            <div className="space-y-6 text-left">
+              <h3 className="text-2xl font-extrabold text-slate-900 text-center">What Happens After You Book?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm">1</div>
+                  <h4 className="font-bold text-slate-900 text-base">Submit Request</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">Fill out the quick request form with your preferred date, time, and language preference.</p>
+                </div>
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm">2</div>
+                  <h4 className="font-bold text-slate-900 text-base">Email Confirmation</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">Malek will email you within 24 hours to confirm your slot and send your meeting link.</p>
+                </div>
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm">3</div>
+                  <h4 className="font-bold text-slate-900 text-base">Join the Call</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">Hop on Google Meet or a phone call for a relaxed, pressure-free 1-on-1 session!</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Frequently Asked Questions */}
+            <div className="space-y-6 text-left pt-4">
+              <div className="text-center">
+                <h3 className="text-2xl font-extrabold text-slate-900">Frequently Asked Questions</h3>
+                <p className="text-slate-600 text-sm mt-1">Everything you need to know before your first session.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <h4 className="font-bold text-slate-900 text-base">What platform do we use for the call?</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">We usually connect via Google Meet or Zoom. If video call anxiety makes you uncomfortable, standard phone calls or audio-only options are 100% fine!</p>
+                </div>
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <h4 className="font-bold text-slate-900 text-base">Do I need to turn my camera on?</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">Not at all! Your comfort comes first. We can do audio-only calls whenever you prefer.</p>
+                </div>
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <h4 className="font-bold text-slate-900 text-base">How does payment work for paid sessions?</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">Your first 30-minute intro call is 100% free. For follow-up $10 sessions, payment details are shared directly after your free call if you decide to continue.</p>
+                </div>
+                <div className="bg-white/90 backdrop-blur p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
+                  <h4 className="font-bold text-slate-900 text-base">What if I need to reschedule?</h4>
+                  <p className="text-slate-600 text-xs leading-relaxed">No problem at all! Just reply to your confirmation email at least 12 hours in advance, and we will pick a new time.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         )}
 
@@ -387,7 +452,7 @@ export default function Home() {
       {/* ------------------------------------------------------------- */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
-          <div className="bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative border border-slate-100">
+          <div className="bg-white w-full max-w-lg rounded-3xl p-6 md:p-8 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto">
             <button 
               onClick={() => { setIsModalOpen(false); setFormStatus('idle'); }}
               className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full flex items-center justify-center bg-slate-100"
@@ -402,7 +467,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900">Request Sent!</h3>
                 <p className="text-slate-600 text-sm">
-                  Thanks for reaching out! I've received your message and will reply to your email shortly to schedule our call.
+                  Thanks for reaching out! I've received your request and will reply to your email shortly to confirm our call date and time.
                 </p>
                 <button
                   onClick={() => { setIsModalOpen(false); setFormStatus('idle'); }}
@@ -415,7 +480,7 @@ export default function Home() {
               <form onSubmit={handleFormSubmit} className="space-y-4">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-black text-slate-900">Book Your Session</h3>
-                  <p className="text-slate-600 text-sm mt-1">Fill in your details below to schedule your call with Malek.</p>
+                  <p className="text-slate-600 text-sm mt-1">Fill in your details to request your call slot with Malek.</p>
                 </div>
 
                 <div>
@@ -440,6 +505,29 @@ export default function Home() {
                   />
                 </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Preferred Date</label>
+                    <input 
+                      type="date" 
+                      name="preferred_date" 
+                      required 
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Preferred Time Slot</label>
+                    <select 
+                      name="preferred_time"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm bg-white"
+                    >
+                      <option value="Afternoon (2 PM - 5 PM CET)">Afternoon (2 PM - 5 PM CET)</option>
+                      <option value="Evening (5 PM - 9 PM CET)">Evening (5 PM - 9 PM CET)</option>
+                      <option value="Flexible / Any Time">Flexible / Any Time</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Language Goal</label>
                   <select 
@@ -453,12 +541,11 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Preferred Time / Note</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Note / Goal (Optional)</label>
                   <textarea 
                     name="message" 
-                    rows={3} 
-                    required
-                    placeholder="Tell me a bit about your goals and when you are free..."
+                    rows={2} 
+                    placeholder="Tell me a bit about what you'd like to work on..."
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
                   ></textarea>
                 </div>
@@ -472,9 +559,9 @@ export default function Home() {
                 <button 
                   type="submit" 
                   disabled={formStatus === 'submitting'}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-md disabled:opacity-50"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-md disabled:opacity-50 mt-2"
                 >
-                  {formStatus === 'submitting' ? 'Sending...' : 'Send Booking Request'}
+                  {formStatus === 'submitting' ? 'Sending Request...' : 'Send Booking Request'}
                 </button>
               </form>
             )}
